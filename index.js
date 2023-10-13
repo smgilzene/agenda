@@ -1,8 +1,30 @@
 const express = require('express')
-const app = express()
+const app = express();
+const port = 3000
+const todoList = [];
 
-app.post('/test', function (req, res) {
-  res.send('Hello World')
+
+app.get('/todo', function (req, res) {
+  res.send(todoList);
 })
 
-app.listen(3000)
+app.get('/todo/add', function (req, res) {
+  // TODO: change this to a user defined input
+  const newTodo = 'new item';
+
+  // add item to todo list
+  todoList.push(newTodo);
+
+  res.send(todoList);
+});
+
+// TODO: make an andpoint that deletes an item from the todo list
+app.get('/todo/delete', function (req, res) {
+  res.send(todoList);
+});
+
+
+
+
+console.log(`Server is running on port ${3000}`);
+app.listen(port)
