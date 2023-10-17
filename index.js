@@ -18,8 +18,10 @@ app.get('/todo/add', function (req, res) {
   res.send(todoList);
 });
 
-// TODO: make an andpoint that deletes an item from the todo list
 app.get('/todo/delete', function (req, res) {
+
+  todoList.pop();
+
   res.send(todoList);
 });
 
